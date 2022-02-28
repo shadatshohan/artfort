@@ -9,4 +9,4 @@ def home(request):
 	return render(request,'ecommerce/home.html',context)
 
 def contact(request):
-	pass
+	return render(request,'ecommerce/contact.html')

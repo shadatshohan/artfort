@@ -3,6 +3,7 @@
 {% block title %}Artfort{% endblock %}
 {% block header %}{% include 'ecommerce/header.html' %}{% endblock %}
 {% block mainbody %}
+<body id="home">
  <!-- main content -->
     <div class="main-content">
         <div class="wrap-banner">
@@ -2043,114 +2044,8 @@
     </div>
 
     <!-- footer -->
-{% block footer %}{% include 'ecommerce/footer.html' %}{% endblock %}
+{% include 'ecommerce/footer.html' %} 
 
-    <!-- back top top -->
-    <div class="back-to-top">
-        <a href="#">
-            <i class="fa fa-long-arrow-up"></i>
-        </a>
-    </div>
-
- 
-
-    <!-- menu mobie right -->
-    <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up active d-md-none">
-        <div class="content-boxpage col">
-            <div class="box-header d-flex justify-content-between align-items-center">
-                <div class="title-box">Menu</div>
-                <div class="close-box">Close</div>
-            </div>
-            <div class="box-content">
-                <nav>
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div id="megamenu" class="clearfix">
-                        <ul class="menu level1">
-                            <li class="item home-page has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#home1" aria-expanded="true" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
-                                <a href="index-2.html" title="Home">
-                                    <i class="fa fa-home" aria-hidden="true"></i>Home</a>
-                            
-                            </li>
-                            <li class="item has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#blog" aria-expanded="false" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
-                                <a href="#" title="Blog">
-                                    <i class="fa fa-address-book" aria-hidden="true"></i>Men's Fashion</a>
-
-                                <div class="subCategory collapse" id="blog" aria-expanded="true" role="status">
-                                    <ul>
-                                        <li class="item">
-                                            <a href="#" title="Blog List (Sidebar Left)">Punjabi</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#" title="Blog List (Sidebar Left) 2">Tshirt</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#" title="Category Blog (Right column)">Shirt</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="item group has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#page" aria-expanded="false" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
-                                </span>
-                                <a href="#" title="Page">
-                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>Kid's Fashion</a>
-                                <div class="subCategory collapse" id="page" aria-expanded="true" role="status">
-                                    <ul class="group-page">
-                                        <li class="item container group">
-                                            <div>
-                                                <ul>
-                                                    <li class="item col-md-4 ">
-                                                        <span class="menu-title">Category Style</span>
-                                                        <div class="menu-content">
-                                                            <ul class="col">
-                                                                <li>
-                                                                    <a href="#">Baby Product</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Small Dress</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Baby Product2</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="item has-sub">
-                                <a href="contact.html" title="Contact us">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page Loader -->
-    <div id="page-preloader">
-        <div class="page-loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
+ {% include 'ecommerce/mobile.html' %}    
 {% endblock %}
+</body>

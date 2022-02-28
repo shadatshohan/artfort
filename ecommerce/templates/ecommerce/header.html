@@ -100,8 +100,13 @@
                     <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
                         <div class="menu navbar collapse navbar-collapse">
                             <ul class="menu-top navbar-nav">
-                                <li class="nav-link">
-                                    <a href="#" class="parent">Home</a>
+                                {% url 'home' as the_url %}
+                                {% if request.get_full_path == the_url %}<li class="nav-link">
+                                {% else %}
+                                <li>
+                                    {% endif %}
+                                    <a href="{% url 'home' %}" class="parent">Home</a>
+                               
                                 </li>
                                 <li>
                                     <a href="#" class="parent">Men's Fashion</a>
@@ -150,8 +155,12 @@
                                         </ul>
                                     </div>
                                 </li>
+                               {% url 'contact' as the_url %}
+                                {% if request.get_full_path == the_url %}<li class="nav-link">
+                                {% else %}
                                 <li>
-                                    <a href="contact.html" class="parent">Contact US</a>
+                                    {% endif %}
+                                    <a href="{% url 'contact' %}" class="parent">Contact US</a>
                                 </li>
                             </ul>
                         </div>
@@ -248,7 +257,7 @@
                                                 <tr>
                                                     <td class="product-image">
                                                         <a href="#">
-                                                            <img src="img/product/5.jpg" alt="Product">
+                                                            <img src="{% static '' %}img/product/5.jpg" alt="Product">
                                                         </a>
                                                     </td>
                                                     <td>
