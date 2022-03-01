@@ -94,18 +94,12 @@
                                                 <!-- <div class="btn dropdown-toggle toggle-cate-child-vertical hidden-md-up mr-auto">Select category</div> -->
                                                 <div class="cate-child-vertical">
                                                     <ul class="d-flex align-items-start flex-column">
+                                                        {% for i in men %}
                                                         <li>
-                                                            <a href="#">Punjabi</a>
+                                                            <a href="#" >{{i.title}}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="#">Kurta</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Shirt</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Tshirt</a>
-                                                        </li>
+                                                        {% endfor %}
+                                                     
                                                         <li class="last float-right">
                                                             <a href="#">View all</a>
                                                         </li>
@@ -129,14 +123,19 @@
                                                 <div class="tab-content">
                                                     <div id="new" class="tab-pane fade in active show">
                                                         <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
+                                                         {% for i in new_product_men %}
                                                             <div class="item text-center">
                                                                 <div class="product-miniature first-item js-product-miniature item-one">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="#">
-                                                                            <img class="img-fluid image-cover" src="{% static '' %}img/product/1.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="{% static '' %}img/product/5.jpg" alt="img">
+                                                                        <a href="{% url 'product_detail' id=i.id %}">
+                                                                            <img class="img-fluid image-cover" src="{{ i.ImageUrl }}" alt="img">
+                                                                            
+                                                                            <img class="img-fluid image-secondary" src="{{ i.image2.url }}" alt="img">
+                                                                         
                                                                         </a>
-                                                                        <div class="product-flags discount">-30%</div>
+                                                                        {% if i.discount %}
+                                                                        <div class="product-flags discount">{{ i.discount }}%</div>
+                                                                        {% endif %}
                                                                         <div class="highlighted-informations">
                                                                             <div class="variant-links">
                                                                                 <a href="#" class="color beige" title="Beige"></a>
@@ -148,7 +147,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="#">Nulla et justo non augue</a>
+                                                                                <a href="#"{{ i.detail }}</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -161,8 +160,9 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">£20.08</span>
-                                                                                    <del class="regular-price">£28.68</del>
+                                                                                    <span class="price">{{ i.price }}</span>
+                                                                                    {% if i.old_price %}
+                                                                                    <del class="regular-price">{{ i.old_price }}</del>{% endif %}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -182,110 +182,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
-                                                                            <img class="img-fluid image-cover" src="{% static '' %}img/product/3.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="{% static '' %}img/product/9.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="product-flags discount">-10%</div>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.html">Nam semper a ligula nec</a>
-                                                                            </div>
-                                                                            <div class="rating">
-                                                                                <div class="star-content">
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">£20.08</span>
-                                                                                    <del class="regular-price">£28.68</del>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
-                                                                            <img class="img-fluid image-cover" src="{% static '' %}img/product/2.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="{% static '' %}img/product/17.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.html">Phasellus vitae...</a>
-                                                                            </div>
-                                                                            <div class="rating">
-                                                                                <div class="star-content">
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                    <div class="star"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">£20.08</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        {% endfor %}
                                                         </div>
                                                     </div>
 
@@ -953,19 +850,11 @@
                                                     </div>
                                                     <div class="cate-child-vertical">
                                                         <ul class="d-flex align-items-start flex-column">
+                                                            {% for i in kid %}
                                                             <li>
-                                                                <a href="#">Baby Product1</a>
+                                                                <a href="#">{{i.title}}</a>
                                                             </li>
-                                                            <li>
-                                                                <a href="#">Baby Product2</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Baby Product3</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Baby Product4</a>
-                                                            </li>
-                                                             
+                                                            {% endfor %}
                                                             <li class="last float-right">
                                                                 <a href="#">View All</a>
                                                             </li>
