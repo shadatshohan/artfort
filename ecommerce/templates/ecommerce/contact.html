@@ -1,5 +1,6 @@
 {% extends 'ecommerce/index.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block header %}{% include 'ecommerce/header.html' %}{% endblock %}
 {% block mainbody %}
 <body id="contact">
@@ -81,24 +82,25 @@
                                     <div class="d-flex justify-content-center">
                                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="contact-form">
-                                                <form action="#" method="post" enctype="multipart/form-data">
+                                                <form id="contact-form" action="{% url 'contact' %}" method="post" enctype="multipart/form-data">
+                                                    {% csrf_token %}
                                                     <div class="form-fields">
                                                         <div class="form-group row">
                                                             <div class="col-md-6">
-                                                                <input class="form-control" name="name" placeholder="Your name">
+                                                                {{form.name|as_crispy_field}}
                                                             </div>
                                                             <div class="col-md-6 margin-bottom-mobie">
-                                                                <input class="form-control" name="from" type="email" value="" placeholder="Your email">
+                                                                {{form.email|as_crispy_field}}
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-md-12 margin-bottom-mobie">
-                                                                <input class="form-control" name="from" type="email" value="" placeholder="Subject">
+                                                                {{form.subject|as_crispy_field}}
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-md-12">
-                                                                <textarea class="form-control" name="message" placeholder="Message" rows="8"></textarea>
+                                                                {{form.message|as_crispy_field}}
                                                             </div>
                                                         </div>
                                                     </div>

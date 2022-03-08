@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>	testing</title>
+	<link rel="stylesheet" href="">
+	<style>
+	.size-option>li>a {
+  display: block;
+  border: 1px solid #DADADA;
+  font-weight: 700;
+  padding: 2px 7px 0px 8px;
+}
+
+.size-option>li.active a {
+  color: #F8694A;
+  border-color: #F8694A;
+}
+
+.color-option>li {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  vertical-align: top;
+}
+
+.color-option>li:last-child {
+  margin-right: 0px;
+}
+
+.color-option>li>a {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.color-option>li.active a {
+  -webkit-box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F8694A;
+  box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F8694A;
+}
+	</style>
+</head>
+<body>
+	<div class="colors">
+                                                                <form method="post">
+                                                                         <div id="appendHere">
+                                                    <input type="hidden" name="size" id="size" value="{{ size_id }}">
+                                                                        <ul class="color-option" >
+                                                                            <li><span class="text-uppercase">Color:</span></li>              
+                                                            <input type="radio" name="variantid" id="variantid">
+                                                            <li class="active">
+                                                               <a style="background-color:#0000FF; color: #D9D9D9; text-shadow: 1px 1px #000000; width: 90px">
+                                                                   10.00 USD
+                                                                </a>
+                                                                <img src="10.jpg" alt="error" style="height: 70px">
+                                                            </li>
+                                                            <input type="radio" name="variantid2" id="variantid2">
+                                                            <li>
+                                                                <a style="background-color:#0000FF; color: #D9D9D9; text-shadow: 1px 1px #000000; width: 90px">
+                                                                   10.00 USD
+                                                                </a>
+                                                                <img src="10.jpg" alt="error" style="height: 70px">
+                                                            </li>
+                                                            <input type="radio" name="variantid3" id="variantid3">
+                                                             <li>
+                                                                <a style="background-color:#0000FF; color: #D9D9D9; text-shadow: 1px 1px #000000; width: 90px">
+                                                                   10.00 USD
+                                                                </a>
+                                                                <img src="10.jpg" alt="error" style="height: 70px">
+                                                            </li>      
+                                                    </ul>
+                                                </div>
+                                            </form>
+                                                                
+                                                            </div>
+</body>
+</html>

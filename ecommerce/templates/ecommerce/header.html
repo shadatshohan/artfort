@@ -9,7 +9,7 @@
 
                 <!-- logo -->
                 <div class="mobile-logo">
-                    <a href="#">
+                    <a href="{% url 'home' %}">
                         <img class="logo-mobile img-fluid" src="{% static '' %}img/home/logo1.png" alt="Prestashop_Furnitica">
                     </a>
                 </div>
@@ -40,19 +40,20 @@
                             <div class="cart-content">
                                 <table>
                                     <tbody>
+                                        {% for i in cart_product %}
                                         <tr>
                                             <td class="product-image">
                                                 <a href="#">
-                                                    <img src="{% static '' %}img/product/5.jpg" alt="Product">
+                                                    <img src="{{ i.product.ImageUrl }}" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="#">Organic Strawberry Fruits</a>
+                                                    <a href="#">{{ i.product.title }}</a>
                                                 </div>
                                                 <div>
-                                                    2 x
-                                                    <span class="product-price">£28.98</span>
+                                                    {{ i.quantity }} x
+                                                    <span class="product-price">BDT {{ i.product.price }}</span>
                                                 </div>
                                             </td>
                                             <td class="action">
@@ -61,22 +62,24 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                         <tr class="total">
                                             <td colspan="2">Total:</td>
-                                            <td>£92.96</td>
+                                            <td>BDT {{ total_amount }}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="product-cart.html" title="View Cart">View Cart</a>
-                                                    <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                    <a href="{% url 'cart_details' %}" title="View Cart">View Cart</a>
+                                                    <a href="#" title="Checkout">Checkout</a>
                                                 </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -90,7 +93,7 @@
                     <!-- logo -->
                     <div class="col-sm-2 col-md-2 d-flex align-items-center">
                         <div id="logo">
-                            <a href="#">
+                            <a href="{% url 'home' %}">
                                 <img class="img-fluid" src="{% static '' %}img/home/logo2.png" alt="logo">
                             </a>
                         </div>
@@ -254,19 +257,20 @@
                                     <div class="cart-content">
                                         <table>
                                             <tbody>
+                                                {% for i in cart_product %}
                                                 <tr>
                                                     <td class="product-image">
                                                         <a href="#">
-                                                            <img src="{% static '' %}img/product/5.jpg" alt="Product">
+                                                            <img src="{{ i.product.ImageUrl }}" alt="Product">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <div class="product-name">
-                                                            <a href="#">Organic Strawberry Fruits</a>
+                                                            <a href="#">{{ i.product.title}}</a>
                                                         </div>
                                                         <div>
-                                                            2 x
-                                                            <span class="product-price">£28.98</span>
+                                                            {{ i.quantity}}x
+                                                            <span class="product-price">BDT {{i.product.price}}</span>
                                                         </div>
                                                     </td>
                                                     <td class="action">
@@ -275,15 +279,16 @@
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                {% endfor %}
                                                 <tr class="total">
                                                     <td colspan="2">Total:</td>
-                                                    <td>£92.96</td>
+                                                    <td>BDT {{ total_amount }}</td>
                                                 </tr>
 
                                                 <tr>
                                                     <td colspan="3" class="d-flex justify-content-center">
                                                         <div class="cart-button">
-                                                            <a href="#" title="View Cart">View Cart</a>
+                                                            <a href="{% url 'cart_details' %}" title="View Cart">View Cart</a>
                                                             <a href="#" title="Checkout">Checkout</a>
                                                         </div>
                                                     </td>

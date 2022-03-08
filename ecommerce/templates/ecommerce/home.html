@@ -147,7 +147,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="#"{{ i.detail }}</a>
+                                                                                <a href="{% url 'product_detail' id=i.id %}">{{ i.detail }}</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -160,7 +160,7 @@
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">{{ i.price }}</span>
+                                                                                    <span class="price">BDT {{ i.price }}</span>
                                                                                     {% if i.old_price %}
                                                                                     <del class="regular-price">{{ i.old_price }}</del>{% endif %}
                                                                                 </div>
@@ -168,7 +168,7 @@
                                                                         </div>
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                <a class="add-to-cart" href="{%url 'Add_to_Shoping_cart' id=i.id %}" data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
                                                                             </form>
