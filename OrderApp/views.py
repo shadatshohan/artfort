@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect, reverse
 from OrderApp.models import ShopCart,ShopingCartForm
+from Product.models import Product
 from django.contrib import messages
 from ecommerce.models import Setting
 
@@ -20,22 +21,34 @@ def Add_to_Shoping_cart(request, id):
             if control == 1:
                 data = ShopCart.objects.get(
                     product_id=id, user_id=current_user.id)
+                data2=Product.objects.get(id=id)
                 data.quantity += form.cleaned_data['quantity']
+                data2.amount -= form.cleaned_data['quantity']
                 data.save()
+                data2.save()
+                print(data2.amount)
             else:
                 data = ShopCart()
+                data2=Product.objects.get(id=id)
                 data.user_id = current_user.id
                 data.product_id = id
                 data.quantity = form.cleaned_data['quantity']
+                data2.amount -= form.cleaned_data['quantity']
                 data.save()
+                data2.save()
+                print(data2.amount)
         messages.success(request, 'Your Product  has been added')
         return HttpResponseRedirect(url)
     else:
         if control == 1:
             data = ShopCart.objects.get(
                 product_id=id, user_id=current_user.id)
+            data2=Product.objects.get(id=id)
+            print(data2)
             data.quantity += 1
+            data2.amount -= 1
             data.save()
+            data2.save()
         else:
             data = ShopCart()
             data.user_id = current_user.id

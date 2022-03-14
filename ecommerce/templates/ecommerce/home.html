@@ -168,9 +168,11 @@
                                                                         </div>
                                                                         <div class="product-buttons d-flex justify-content-center">
                                                                             <form action="#" method="post" class="formAddToCart">
-                                                                                <a class="add-to-cart" href="{%url 'Add_to_Shoping_cart' id=i.id %}" data-button-action="add-to-cart">
+                                                                                {% if i.amount > 0 %}
+                                                                                <a class="add-to-cart" href="{%url 'Add_to_Shoping_cart' id=i.id %}" disabled data-button-action="add-to-cart">
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                 </a>
+                                                                                {% endif %}
                                                                             </form>
                                                                             <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -1029,6 +1031,7 @@
                                                                                 <form action="#" method="post" class="formAddToCart">
 
                                                                                     <input type="hidden" name="id_product" value="1">
+
                                                                                     <a class="add-to-cart" href="#" data-button-action="add-to-cart">
                                                                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                                     </a>

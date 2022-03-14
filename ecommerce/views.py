@@ -14,6 +14,7 @@ def home(request):
     total_quan = 0
     for p in cart_product:
         total_quan += p.quantity
+    total_item=cart_product.count()
     slide_images=BannerImages.objects.all()
     setting=Setting.objects.get(id=1)
     men=Category.objects.filter(categorytype__contains='Men')
@@ -27,7 +28,8 @@ def home(request):
             'new_product_men':new_product_men,
             'cart_product':cart_product,
             'total_amount':total_amount,
-            'total_quan': total_quan}
+            'total_quan': total_quan,
+            'total_item':total_item}
     return render(request,'ecommerce/home.html',context)
 
 def contact(request):
@@ -57,6 +59,15 @@ def product_detail(request,id):
     men=Category.objects.filter(categorytype__contains='Men')
     kid=Category.objects.filter(categorytype__contains='Kid')
     new_product_men=Product.objects.filter(categorytype__contains='Men',status__contains='new')
+    current_user = request.user
+    cart_product = ShopCart.objects.filter(user_id=current_user.id)
+    total_amount = 0
+    for p in cart_product:
+        total_amount += p.product.price*p.quantity
+    total_quan = 0
+    for p in cart_product:
+        total_quan += p.quantity
+    total_item=cart_product.count()
     context={
             'setting':setting,
             'product':product,
@@ -64,7 +75,11 @@ def product_detail(request,id):
             'productb':productb,
             'men':men,
             'kid':kid,
-            'new_product_men':new_product_men}
+            'new_product_men':new_product_men,
+            'cart_product':cart_product,
+            'total_amount':total_amount,
+            'total_quan': total_quan,
+            'total_item':total_item}
     if product.variant!="None":
         if request.method=='POST':
             variant_id=request.POST.get('variantid')
